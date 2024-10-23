@@ -1,0 +1,28 @@
+#Cargar Usuarios
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "username": "ulises",
+  "lastname": "dalmau",
+  "email": "ulises@example.com",
+  "password": "password123"
+}
+
+
+###Ver Usuarios
+GET http://localhost:3000/users/
+
+###Cargar Productos
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Air Force",
+  "description": "adadad",
+  "price": "200",
+  "stock": "40"
+}
+
+###Ver Productos
+GET http://localhost:3000/products
