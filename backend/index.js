@@ -1,6 +1,7 @@
 const express = require('express');
 const sequelize = require('./config/database');
 const productRoutes = require('./routes/products');
+const userRoutes = require('./routes/users'); 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 
 // Rutas para productos
 app.use('/products', productRoutes);
+app.use('/users', userRoutes);
 
 sequelize.sync().then(() => {
   app.listen(PORT, () => {
