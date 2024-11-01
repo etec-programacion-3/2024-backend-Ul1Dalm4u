@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
 
-// Obtener todos los productoss
+// Obtener todos los productos
 router.get('/', async (req, res) => {
   const products = await Product.findAll();
   res.json(products);
@@ -10,19 +10,19 @@ router.get('/', async (req, res) => {
 
 // Crear un nuevo producto
 router.post('/', async (req, res) => {
-  const { name, description, price, stock } = req.body;
-  const newProduct = await Product.create({ name, description, price, stock });
+  const { name, description, price, stock, gender, images } = req.body;
+  const newProduct = await Product.create({ name, description, price, stock, gender, images });
   res.json(newProduct);
 });
 
 // Actualizar un producto
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { name, description, price, stock } = req.body;
+  const { name, description, price, stock, gender, images } = req.body;
   const product = await Product.findByPk(id);
-  
+
   if (product) {
-    await product.update({ name, description, price, stock });
+    await product.update({ name, description, price, stock, gender, images });
     res.json(product);
   } else {
     res.status(404).send('Producto no encontrado');
@@ -33,7 +33,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   const product = await Product.findByPk(id);
-  
+
   if (product) {
     await product.destroy();
     res.send('Producto eliminado');

@@ -11,18 +11,27 @@ Content-Type: application/json
 
 
 ###Ver Usuarios
-GET http://localhost:3000/users/
+GET http://192.168.42.15:3000/users/
+
+###Borrar usuarios
+DELETE http://192.168.42.15:3000/users/
 
 ###Cargar Productos
 POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "name": "Air Force",
-  "description": "adadad",
-  "price": "200",
-  "stock": "40"
+  "name": "adi2000",
+  "description": "Son una zapatillas",
+  "price": "200000",
+  "stock": "40",
+  "gender": "man",
+  "images": "['https://essential.vtexassets.com/arquivos/ids/1336761/261-5975_2.jpg','https://essential.vtexassets.com/arquivos/ids/1336761/261-5975_2.jpg']"
+            
 }
 
 ###Ver Productos
-GET http://localhost:3000/products
+GET http://192.168.42.15:3000/products
+
+###Borrar producto
+DELETE http://192.168.42.15:3000/products/

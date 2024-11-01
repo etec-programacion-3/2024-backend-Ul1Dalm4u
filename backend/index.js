@@ -2,12 +2,14 @@ const express = require('express');
 const sequelize = require('./config/database');
 const productRoutes = require('./routes/products');
 const userRoutes = require('./routes/users'); 
+const cors= require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 
 // Ruta raíz
 app.get('/', (req, res) => {
