@@ -1,37 +1,45 @@
-#Cargar Usuarios
-POST http://localhost:3000/users
-Content-Type: application/json
-
-{
-  "username": "ulises",
-  "lastname": "dalmau",
-  "email": "ulises@example.com",
-  "password": "password123"
-}
-
-
-###Ver Usuarios
-GET http://192.168.42.15:3000/users/
-
-###Borrar usuarios
+### Borrar Usuarios
 DELETE http://192.168.42.15:3000/users/
 
-###Cargar Productos
+### Cargar Productos
 POST http://localhost:3000/products
 Content-Type: application/json
 
 {
   "name": "adi2000",
-  "description": "Son una zapatillas",
+  "description": "Son unas zapatillas",
   "price": "200000",
   "stock": "40",
-  "gender": "man",
-  "images": "['https://essential.vtexassets.com/arquivos/ids/1336761/261-5975_2.jpg','https://essential.vtexassets.com/arquivos/ids/1336761/261-5975_2.jpg']"
-            
+  "gender": "man"
 }
 
-###Ver Productos
-GET http://192.168.42.15:3000/products
+### Ver Productos
+GET http://localhost:3000/products
 
-###Borrar producto
+### Borrar Producto
 DELETE http://192.168.42.15:3000/products/
+
+###Cargar imagen por id
+POST http://localhost:3000/images/product/1
+Content-Type: application/json
+
+{
+  "idproduct": 1,
+  "url": "https://example.com/image1.jpg"
+}
+
+###Ver todas las imagenes 
+GET http://localhost:3000/images
+
+###Ver imagenes por id
+GET http://localhost:3000/images/1
+
+###Actualizar imagen por id
+PUT http://localhost:3000/images/1
+
+{
+  "url": "https://example.com/updated_image.jpg"
+}
+###Borrar imagen por id
+DELETE http://localhost:3000/images/1
+
