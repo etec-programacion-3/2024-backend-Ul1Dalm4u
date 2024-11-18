@@ -9,10 +9,10 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "username": "PEPE",
-  "lastname": "Juan Actualizado",
-  "email": "juan.actualizado@example.com",
-  "password": "Juan Actualizado"
+  "username": "Ulises",
+  "lastname": "Dalmau",
+  "email": "Ulises@example.com",
+  "password": "abc123"
 }
 
 ###
@@ -32,6 +32,15 @@ Content-Type: application/json
 ### Eliminar un usuario existente
 DELETE http://localhost:3000/users/1
 Content-Type: application/json
+
+### Inicio de sesión
+POST http://localhost:3000/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "Ulises@example.com",
+  "password": "abc123"
+}
 
 
 #PRODUCTOS
@@ -53,7 +62,7 @@ Content-Type: application/json
 GET http://localhost:3000/products
 
 ### Borrar Producto
-DELETE http://localhost:3000/products/{id}
+DELETE http://localhost:3000/products/1
 
 #IMAGENES
 #---------------------------------------------------
@@ -79,5 +88,5 @@ Content-Type: application/json
 }
 
 ### Borrar imagen por id
-DELETE http://localhost:3000/images/1
+DELETE http://localhost:3000/images/3
 
