@@ -10,19 +10,20 @@ router.get('/', async (req, res) => {
 
 // Crear un nuevo producto
 router.post('/', async (req, res) => {
-  const { name, description, price, stock, gender, images } = req.body;
-  const newProduct = await Product.create({ name, description, price, stock, gender, images });
+  const { name, description, price, stock, gender } = req.body;
+  const newProduct = await Product.create({ name, description, price, stock, gender});
   res.json(newProduct);
 });
+
 
 // Actualizar un producto
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { name, description, price, stock, gender, images } = req.body;
+  const { name, description, price, stock, gender} = req.body;
   const product = await Product.findByPk(id);
 
   if (product) {
-    await product.update({ name, description, price, stock, gender, images });
+    await product.update({ name, description, price, stock, gender});
     res.json(product);
   } else {
     res.status(404).send('Producto no encontrado');
@@ -31,7 +32,7 @@ router.put('/:id', async (req, res) => {
 
 // Eliminar un producto
 router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params;s
   const product = await Product.findByPk(id);
 
   if (product) {

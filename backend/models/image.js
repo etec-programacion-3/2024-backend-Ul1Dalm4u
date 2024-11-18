@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const Product = require('./product');
 
-// Definir el modelo de imágenes
+// models/Image.js
 const Image = sequelize.define('Image', {
     url: {
         type: DataTypes.STRING,
@@ -11,10 +11,11 @@ const Image = sequelize.define('Image', {
     }
 });
 
-// Establecer la relación con Product (clave foránea)
+// Relación con el modelo Product
 Image.belongsTo(Product, { 
-    foreignKey: 'idproduct', 
+    foreignKey: 'id_product', 
     onDelete: 'CASCADE' 
 });
+
 
 module.exports = Image;

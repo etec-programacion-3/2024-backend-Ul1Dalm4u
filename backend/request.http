@@ -1,5 +1,41 @@
-### Borrar Usuarios
-DELETE http://192.168.42.15:3000/users/
+### Obtener todos los usuarios
+GET http://localhost:3000/users
+Content-Type: application/json
+
+###
+
+### Crear un nuevo usuario
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "username": "PEPE",
+  "lastname": "Juan Actualizado",
+  "email": "juan.actualizado@example.com",
+  "password": "Juan Actualizado"
+}
+
+###
+
+### Actualizar un usuario existente
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "username": "PEPE",
+  "lastname": "Juan Actualizado",
+  "email": "juan.actualizado@example.com",
+  "password": "Juan Actualizado"
+}
+
+
+### Eliminar un usuario existente
+DELETE http://localhost:3000/users/1
+Content-Type: application/json
+
+
+#PRODUCTOS
+#---------------------------------------------------
 
 ### Cargar Productos
 POST http://localhost:3000/products
@@ -17,29 +53,31 @@ Content-Type: application/json
 GET http://localhost:3000/products
 
 ### Borrar Producto
-DELETE http://192.168.42.15:3000/products/
+DELETE http://localhost:3000/products/{id}
 
-###Cargar imagen por id
+#IMAGENES
+#---------------------------------------------------
+
+###Crear una nueva imagen asociada a un producto
 POST http://localhost:3000/images/product/1
 Content-Type: application/json
 
 {
-  "idproduct": 1,
   "url": "https://example.com/image1.jpg"
 }
 
-###Ver todas las imagenes 
-GET http://localhost:3000/images
+###Obtener todas las imágenes asociadas a un producto
+GET http://localhost:3000/images/product/1
+Content-Type: application/json
 
-###Ver imagenes por id
-GET http://localhost:3000/images/1
-
-###Actualizar imagen por id
+### Actualizar URL de la imagen
 PUT http://localhost:3000/images/1
+Content-Type: application/json
 
 {
-  "url": "https://example.com/updated_image.jpg"
+  "url": "http://nuevodominio.com/imagenactualizada.jpg"
 }
-###Borrar imagen por id
+
+### Borrar imagen por id
 DELETE http://localhost:3000/images/1
 
