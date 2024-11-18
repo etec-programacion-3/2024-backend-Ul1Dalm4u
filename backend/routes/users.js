@@ -28,8 +28,8 @@ router.put('/:id', async (req, res) => {
     try {
         const user = await User.findByPk(id);
         if (user) {
-            const updatedUser = await User.update(id, req.body);
-            res.json(updatedUser);
+            await user.update(req.body); // Se usa el método de la instancia
+            res.json(user);
         } else {
             res.status(404).send('Usuario no encontrado');
         }
@@ -44,7 +44,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const user = await User.findByPk(id);
         if (user) {
-            await User.destroy(id);
+            await user.destroy(); // Se llama el método en la instancia
             res.send('Usuario eliminado');
         } else {
             res.status(404).send('Usuario no encontrado');

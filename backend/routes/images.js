@@ -8,7 +8,7 @@ router.get('/product/:productId', async (req, res) => {
 
   try {
     const images = await Image.findAll({
-      where: { id_product: productId }
+      where: { id_product: productId } // Se asegura de que 'id_product' esté correcto
     });
     if (images.length > 0) {
       res.json(images);
@@ -27,7 +27,7 @@ router.post('/product/:productId', async (req, res) => {
 
   try {
     const newImage = await Image.create({
-      id_product: productId,
+      id_product: productId, // Relacionado correctamente con el 'id_product' del producto
       url
     });
     res.status(201).json(newImage);
